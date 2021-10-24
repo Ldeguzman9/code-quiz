@@ -1,3 +1,14 @@
+// DEFINE VARIABLES
+//var timeLeft = 120;
+//var playerScore = 100
+// wrongAnswer = -5
+// correctAnswer = +10
+
+// CONSOLE LOG NAMES AND SCORES
+// console.log(playerName);
+// console.log(playerScore);
+
+// Function to start quiz - prompt name
 var startQuiz = function () {
   var playerName = window.prompt(
     "Welcome to the coding quiz! Please enter your name below."
@@ -8,6 +19,8 @@ var startQuiz = function () {
   );
   console.log(playerName);
 };
+
+// Build quiz function here
 
 // Get references to the #quiz-start element
 var quizBtn = document.querySelector("#quiz-start");

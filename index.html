@@ -1,1 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Code Quiz 🧐</h1>
+      </header>
 
+      <div id="count-down-holder">
+        <h3>TIMER:</h3>
+        <span id="timer_span">
+          <h3>-TIME REMAINING-</h3>
+        </span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 id="questions">Let's take a coding quiz!</h2>
+        </div>
+        <div class="card-body">
+          <ul id="multiple-choice">
+            <li id="first" class="options"></li>
+            <li id="second" class="options"></li>
+            <li id="third" class="options"></li>
+          </ul>
+        </div>
+        <div class="card-footer">
+          <button id="quiz-start" class="btn">Start Quiz</button>
+        </div>
+
+        <div id="high-scores">
+          <h4><a href="*">View High Scores</a></h4>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

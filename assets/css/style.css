@@ -132,5 +132,5 @@ button[disabled] {
 
 a {
   text-decoration: none;
-  color: black;
+  color: hsl(206, 17%, 28%);
 }

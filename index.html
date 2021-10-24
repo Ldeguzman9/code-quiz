@@ -13,18 +13,22 @@
         <h1>Code Quiz 🧐</h1>
       </header>
 
-      <div id="count-down-holder">
-        <h3>
-          TIMER:
-          <span id="timer_span">-TIME REMAINING- </span>
-        </h3>
-      </div>
-
       <div class="card">
         <div class="card-header">
           <h2 id="questions">Let's take a coding quiz!</h2>
         </div>
+        <div id="count-down-holder">
+          <h3>
+            TIME REMAINING:
+            <span id="timer_span"> --- </span>
+          </h3>
+        </div>
         <div class="card-body">
+          <p id="instructions">
+            Try to answer the following Javascript quiz questions. This is a
+            timed quiz. You will have 2 minutes to answer as many questions as
+            possible. Good luck!
+          </p>
           <ul id="multiple-choice">
             <li id="first" class="options"></li>
             <li id="second" class="options"></li>

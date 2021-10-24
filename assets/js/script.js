@@ -1,5 +1,12 @@
 var startQuiz = function () {
-  window.prompt("Welcome to the coding quiz! Please enter your name below.");
+  var playerName = window.prompt(
+    "Welcome to the coding quiz! Please enter your name below."
+  );
+
+  var confirmStart = window.confirm(
+    "Hi " + playerName + ", are you ready to begin?"
+  );
+  console.log(playerName);
 };
 
 // Get references to the #quiz-start element
@@ -17,6 +24,7 @@ var startTime = function () {
     }
   }, 1000);
 };
+
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);
 

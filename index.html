@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <div id="count-down-holder">
+      <h3>
+        TIME REMAINING:
+        <span id="timer_span"> --- </span>
+      </h3>
+    </div>
+    <div id="start-screen" class="wrapper">
       <header>
         <h1>Code Quiz 🧐</h1>
       </header>
@@ -17,23 +23,14 @@
         <div class="card-header">
           <h2 id="questions">Let's take a coding quiz!</h2>
         </div>
-        <div id="count-down-holder">
-          <h3>
-            TIME REMAINING:
-            <span id="timer_span"> --- </span>
-          </h3>
-        </div>
+
         <div class="card-body">
           <p id="instructions">
             Try to answer the following Javascript quiz questions. This is a
             timed quiz. You will have 2 minutes to answer as many questions as
-            possible. Good luck!
+            possible. If an answer is incorrect, 5 seconds will be removed from
+            the clock! Good luck!
           </p>
-          <ul id="multiple-choice">
-            <li id="first" class="options"></li>
-            <li id="second" class="options"></li>
-            <li id="third" class="options"></li>
-          </ul>
         </div>
         <div class="card-footer">
           <button id="quiz-start" class="btn">Start Quiz</button>
@@ -44,6 +41,12 @@
         </div>
       </div>
     </div>
+    <ul id="multiple-choice" class="hide">
+      <div id="question-title"></div>
+      <div id="answer-choices"></div>
+    </ul>
+
+    <div id="end-screen" class="hide">This is the end screen</div>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

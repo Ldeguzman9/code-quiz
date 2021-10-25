@@ -134,3 +134,7 @@ a {
   text-decoration: none;
   color: hsl(206, 17%, 28%);
 }
+
+.hide {
+  display: none;
+}

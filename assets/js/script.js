@@ -60,9 +60,40 @@ var startQuiz = function () {
   console.log(playerName);
   startScreen.setAttribute("class", "hide");
   questionsDiv.removeAttribute("class");
+  //call cycle question function here
+  cycleQuestions();
 };
 
 // Function to cycle the questions
+var cycleQuestions = function () {
+  var displayQuestions = quizQuestions[questionIndex];
+  questionTitle.textContent = displayQuestions.title;
+  answerChoices.innerHTML = "";
+  displayQuestions.choices.forEach(function (choice) {
+    var choiceButton = document.createElement("button");
+    choiceButton.setAttribute("value", choice);
+    choiceButton.setAttribute("class", "choice");
+    choiceButton.textContent = choice;
+    choiceButton.onclick = checkAnswer;
+    answerChoices.appendChild(choiceButton);
+  });
+};
+
+var checkAnswer = function () {
+  if (this.value === quizQuestions[questionIndex].answer) {
+    console.log("correct");
+  } else {
+    timeLeft = timeLeft - 15;
+    timerSpan.textContent = timeLeft;
+    console.log("incorrect");
+  }
+  questionIndex++;
+  if (questionIndex === quizQuestions.length) {
+    //end screen function
+  } else {
+    cycleQuestions();
+  }
+};
 
 // Correct VS Incorrect Answers
 //  switch (totalScore) {

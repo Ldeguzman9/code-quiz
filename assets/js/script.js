@@ -63,11 +63,8 @@ var questionsDiv = document.querySelector("#multiple-choice");
 var questionTitle = document.querySelector("#question-title");
 var answerChoices = document.querySelector("#answer-choices");
 var timerSpan = document.querySelector("#timer_span");
-var playerScore = timeLeft;
-
-// CONSOLE LOG NAMES AND SCORES
-// console.log(playerName);
-// console.log(playerScore);
+var playerScore = 0;
+var finalScore = playerScore + timerSpan;
 
 //Timer function (Tutor version)
 // var startTime = function () {
@@ -129,18 +126,15 @@ var cycleQuestions = function () {
   });
 };
 
-var displayEndScreen = function () {
-  questionsDiv.setAttribute("class", "hide");
-  endScreen.removeAttribute("class");
-};
-
 // Loop question function
 var checkAnswer = function () {
   if (this.value === quizQuestions[questionIndex].answer) {
+    document.getElementById("response-status").innerHTML = "CORRECT!";
     console.log("correct");
   } else {
     timeLeft = timeLeft - 15;
     timerSpan.textContent = timeLeft;
+    document.getElementById("response-status").innerHTML = "INCORRECT!";
     console.log("incorrect");
   }
   questionIndex++;
@@ -151,6 +145,15 @@ var checkAnswer = function () {
     cycleQuestions();
   }
 };
+
+// var displayEndScreen = function () {
+//   questionsDiv.setAttribute("class", "hide");
+//   endScreen.removeAttribute("class");
+//   if (timeLeft > 0) {
+//     finalScore = playerScore + timeLeft;
+//   }
+//   console.log(finalScore);
+// };
 
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);

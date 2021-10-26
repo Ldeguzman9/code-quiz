@@ -58,6 +58,7 @@ var interval;
 var questionIndex = 0;
 var quizBtn = document.querySelector("#quiz-start");
 var startScreen = document.querySelector("#start-screen");
+var endScreen = document.querySelector("#end-screen");
 var questionsDiv = document.querySelector("#multiple-choice");
 var questionTitle = document.querySelector("#question-title");
 var answerChoices = document.querySelector("#answer-choices");
@@ -128,6 +129,12 @@ var cycleQuestions = function () {
   });
 };
 
+var displayEndScreen = function () {
+  questionsDiv.setAttribute("class", "hide");
+  endScreen.removeAttribute("class");
+};
+
+// Loop question function
 var checkAnswer = function () {
   if (this.value === quizQuestions[questionIndex].answer) {
     console.log("correct");
@@ -138,28 +145,12 @@ var checkAnswer = function () {
   }
   questionIndex++;
   if (questionIndex === quizQuestions.length) {
-    //end screen function
+    //call end screen function
+    displayEndScreen();
   } else {
     cycleQuestions();
   }
 };
-
-// Correct VS Incorrect Answers
-//  switch (totalScore) {
-//     case "correct":
-//       //increase playerScore
-//       playerScore = playerScore + 10;
-//       break;
-
-//     case "incorrect":
-//       // decrease player score and subtract timeLeft
-//       playerScore = playerscore - 5;
-//       timeLeft = timeLeft - 5;
-//       break;}
-
-// Loop function
-
-// End screen function
 
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);

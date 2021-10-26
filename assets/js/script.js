@@ -10,6 +10,46 @@ var quizQuestions = [
     choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
     answer: "parentheses",
   },
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts",
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts",
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts",
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
+  {
+    title: "Commonly used data types DO NOT include:",
+    choices: ["strings", "booleans", "alerts", "numbers"],
+    answer: "alerts",
+  },
+  {
+    title: "The condition in an if / else statement is enclosed within ____.",
+    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
+    answer: "parentheses",
+  },
 ];
 
 // DEFINE VARIABLES
@@ -22,22 +62,31 @@ var questionsDiv = document.querySelector("#multiple-choice");
 var questionTitle = document.querySelector("#question-title");
 var answerChoices = document.querySelector("#answer-choices");
 var timerSpan = document.querySelector("#timer_span");
-// var playerScore = 100
-// var incorrectAnswer = -5
-// var correctAnswer = 10
-// var finalScore = playerScore + totalScore
+var playerScore = timeLeft;
 
 // CONSOLE LOG NAMES AND SCORES
 // console.log(playerName);
-// console.log(finalScore);
+// console.log(playerScore);
 
-//Timer function
+//Timer function (Tutor version)
+// var startTime = function () {
+//   var interval = setInterval(function () {
+//     timeLeft--;
+//     timerSpan.textContent = timeLeft;
+//     if (timeLeft <= 0) {
+//       document.getElementById("#timer_span").innerHTML = "Time is up!";
+//       clearInterval(interval);
+//     }
+//   }, 1000);
+// };
+
+//Time function initial version
 var startTime = function () {
   var interval = setInterval(function () {
-    timeLeft--;
-    timerSpan.textContent = timeLeft;
+    document.getElementById("timer_span").innerHTML = --timeLeft;
+
     if (timeLeft <= 0) {
-      document.getElementById("#timer_span").innerHTML = "Time is up!";
+      document.getElementById("timer_span").innerHTML = "Time is up!";
       clearInterval(interval);
     }
   }, 1000);

@@ -84,7 +84,7 @@ var timeLeft = 120;
 var interval;
 var questionIndex = 0;
 var quizBtn = document.querySelector("#quiz-start");
-var tryAgainBtn = document.querySelector("try-again");
+var tryAgainBtn = document.querySelector("#try-again");
 var startScreen = document.querySelector("#start-screen");
 var endScreen = document.querySelector("#end-screen");
 var questionsDiv = document.querySelector("#multiple-choice");
@@ -92,6 +92,8 @@ var questionTitle = document.querySelector("#question-title");
 var answerChoices = document.querySelector("#answer-choices");
 var timerSpan = document.querySelector("#timer_span");
 var results = document.querySelector("#results");
+var initials = document.querySelector("#initials");
+var submit = document.querySelector("#submit");
 var playerScore = timeLeft;
 
 //Timer function (Tutor version)
@@ -108,12 +110,12 @@ var playerScore = timeLeft;
 
 //Time function initial version
 var startTime = function () {
-  var interval = setInterval(function () {
+  interval = setInterval(function () {
     document.getElementById("timer_span").innerHTML = --timeLeft;
 
     if (timeLeft <= 0) {
       document.getElementById("timer_span").innerHTML = "Time is up!";
-      clearInterval(interval);
+      // clearInterval(interval);
       displayEndScreen();
     }
   }, 1000);
@@ -155,6 +157,11 @@ var cycleQuestions = function () {
   });
 };
 
+// function pauseTimer() {
+//   clearInterval(interval);
+//   timerSpan.textContent = timeLeft;
+// }
+
 // Loop question function
 var checkAnswer = function () {
   if (this.value === quizQuestions[questionIndex].answer) {
@@ -163,42 +170,40 @@ var checkAnswer = function () {
   } else {
     timeLeft = timeLeft - 15;
     timerSpan.textContent = timeLeft;
+    if (timeLeft <= 0) {
+      timeLeft = 0;
+    }
     document.getElementById("response-status").innerHTML = "INCORRECT!";
     console.log("incorrect");
   }
   questionIndex++;
   if (questionIndex === quizQuestions.length) {
     //call end screen function
-    questionsDiv.setAttribute("class", "hide");
-    endScreen.removeAttribute("class");
     displayEndScreen();
   } else {
     cycleQuestions();
   }
 };
 
-// // save player info
-// var quizDataObj = {
-//   name: playerName,
-//   score: playerScore,
-// };
-// var Scores = function () {
-//   localStorage.setItem("scores", JSON.stringify(tasks));
-// };
-// function to pause timer
-function pauseTimer() {
-  value = timeLeft.textContent;
-  clearTimeout(timeLeft);
-}
-
 // function for end screen
 var displayEndScreen = function () {
   questionsDiv.setAttribute("class", "hide");
   endScreen.removeAttribute("class");
-  pauseTimer();
-  // results.innerHTML = playerName + ":" + timeLeft + " points.";
-  // console.log(playerName);
-  // console.log(timeLeft);
+  clearInterval(interval);
+  timerSpan.textContent = timeLeft;
+  results.textContent = timeLeft;
+};
+
+// save to local storage
+var scoreBoard = function () {
+  initialsVal = initials.value;
+  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
+  var savedScore = {
+    name: initialsVal,
+    score: timeLeft,
+  };
+  scoresDisplay.push(savedScore);
+  localStorage.setItem("high-scores", JSON.stringify(scoresDisplay));
 };
 
 //function to start over
@@ -207,8 +212,22 @@ var tryQuizAgain = function () {
   startScreen.removeAttribute("class");
 };
 
+var displayScores = function () {
+  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
+  scoresDisplay.forEach(function (savedScore) {
+    var item = document.createElement("li");
+    item.textContent = savedScore.name + ": " + savedScore.score;
+    var parentList = document.querySelector("#highscores");
+    parentList.appendChild(item);
+  });
+};
+
+displayScores();
+
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);
 
 //event listener to start quiz over
-// tryAgainBtn.addEventListener("click", tryQuizAgain);
+tryAgainBtn.addEventListener("click", tryQuizAgain);
+
+submit.addEventListener("click", scoreBoard);

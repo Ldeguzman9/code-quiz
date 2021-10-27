@@ -27,7 +27,7 @@ var quizQuestions = [
       "Return a value",
       "Accept parameters and Return a value",
       "Accept parameters",
-      "square None of the above",
+      "None of the above",
     ],
     answer: "Accept parameters",
   },
@@ -169,7 +169,8 @@ var checkAnswer = function () {
   questionIndex++;
   if (questionIndex === quizQuestions.length) {
     //call end screen function
-
+    questionsDiv.setAttribute("class", "hide");
+    endScreen.removeAttribute("class");
     displayEndScreen();
   } else {
     cycleQuestions();
@@ -184,11 +185,17 @@ var checkAnswer = function () {
 // var Scores = function () {
 //   localStorage.setItem("scores", JSON.stringify(tasks));
 // };
+// function to pause timer
+function pauseTimer() {
+  value = timeLeft.textContent;
+  clearTimeout(timeLeft);
+}
 
 // function for end screen
 var displayEndScreen = function () {
   questionsDiv.setAttribute("class", "hide");
   endScreen.removeAttribute("class");
+  pauseTimer();
   // results.innerHTML = playerName + ":" + timeLeft + " points.";
   // console.log(playerName);
   // console.log(timeLeft);

@@ -11,44 +11,71 @@ var quizQuestions = [
     answer: "parentheses",
   },
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    title: "What are variables used for in JavaScript Programs?:",
+    choices: [
+      "Storing numbers, dates, or other values",
+      "Varying randomly",
+      "Causing high-school algebra flashbacks",
+      "None of the above",
+    ],
+    answer: "Storing numbers, dates, or other values",
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    title:
+      "Which of the following are capabilities of functions in JavaScript?",
+    choices: [
+      "Return a value",
+      "Accept parameters and Return a value",
+      "Accept parameters",
+      "square None of the above",
+    ],
+    answer: "Accept parameters",
   },
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    title:
+      "______ tag is an extension to HTML that can enclose any number of JavaScript statements.",
+    choices: ["<SCRIPT>", "<BODY>", "<HEAD>", "<TITLE>"],
+    answer: "<SCRIPT>",
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    title: "What is the correct JavaScript syntax to write “Hello World”?",
+    choices: [
+      "System.out.println(“Hello World”)",
+      "println (“Hello World”)",
+      "document.write(“Hello World”)",
+      "response.write(“Hello World”)",
+    ],
+    answer: "document.write(“Hello World”)",
   },
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    title: "Inside which HTML element do we put the JavaScript?",
+    choices: ["<js>", "<scripting>", "<script>", "<javascript>"],
+    answer: "<script>",
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    title: "Which is the correct way to write a JavaScript array?",
+    choices: [
+      "var txt = new Array(1:”tim”,2:”kim”,3:”jim”)",
+      "var txt = new Array:1=(“tim”)2=(“kim”)3=(“jim”)",
+      "var txt = new Array(“tim”,”kim”,”jim”)",
+      "var txt = new Array=”tim”,”kim”,”jim”",
+    ],
+    answer: "var txt = new Array(“tim”,”kim”,”jim”)",
   },
   {
-    title: "Commonly used data types DO NOT include:",
-    choices: ["strings", "booleans", "alerts", "numbers"],
-    answer: "alerts",
+    title: "Which of the following best describes JavaScript?",
+    choices: [
+      " a low-level programming language.",
+      "a scripting language precompiled in the browser.",
+      "a compiled scripting language.",
+      "an object-oriented scripting language.",
+    ],
+    answer: "an object-oriented scripting language.",
   },
   {
-    title: "The condition in an if / else statement is enclosed within ____.",
-    choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-    answer: "parentheses",
+    title: "Using _______ statement is how you test for a specific condition.",
+    choices: ["Select", "If", "Switch", "For"],
+    answer: "If",
   },
 ];
 
@@ -57,14 +84,15 @@ var timeLeft = 120;
 var interval;
 var questionIndex = 0;
 var quizBtn = document.querySelector("#quiz-start");
+var tryAgainBtn = document.querySelector("try-again");
 var startScreen = document.querySelector("#start-screen");
 var endScreen = document.querySelector("#end-screen");
 var questionsDiv = document.querySelector("#multiple-choice");
 var questionTitle = document.querySelector("#question-title");
 var answerChoices = document.querySelector("#answer-choices");
 var timerSpan = document.querySelector("#timer_span");
-var playerScore = 0;
-var finalScore = playerScore + timerSpan;
+var results = document.querySelector("#results");
+var playerScore = timeLeft;
 
 //Timer function (Tutor version)
 // var startTime = function () {
@@ -86,6 +114,7 @@ var startTime = function () {
     if (timeLeft <= 0) {
       document.getElementById("timer_span").innerHTML = "Time is up!";
       clearInterval(interval);
+      displayEndScreen();
     }
   }, 1000);
 };
@@ -140,20 +169,39 @@ var checkAnswer = function () {
   questionIndex++;
   if (questionIndex === quizQuestions.length) {
     //call end screen function
+
     displayEndScreen();
   } else {
     cycleQuestions();
   }
 };
 
-// var displayEndScreen = function () {
-//   questionsDiv.setAttribute("class", "hide");
-//   endScreen.removeAttribute("class");
-//   if (timeLeft > 0) {
-//     finalScore = playerScore + timeLeft;
-//   }
-//   console.log(finalScore);
+// // save player info
+// var quizDataObj = {
+//   name: playerName,
+//   score: playerScore,
 // };
+// var Scores = function () {
+//   localStorage.setItem("scores", JSON.stringify(tasks));
+// };
+
+// function for end screen
+var displayEndScreen = function () {
+  questionsDiv.setAttribute("class", "hide");
+  endScreen.removeAttribute("class");
+  // results.innerHTML = playerName + ":" + timeLeft + " points.";
+  // console.log(playerName);
+  // console.log(timeLeft);
+};
+
+//function to start over
+var tryQuizAgain = function () {
+  endScreen.setAttribute("class", "hide");
+  startScreen.removeAttribute("class");
+};
 
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);
+
+//event listener to start quiz over
+// tryAgainBtn.addEventListener("click", tryQuizAgain);

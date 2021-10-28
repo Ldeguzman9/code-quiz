@@ -175,6 +175,7 @@ var displayEndScreen = function () {
   clearInterval(interval);
   timerSpan.textContent = timeLeft;
   results.innerHTML = timeLeft;
+  questionIndex = 0;
 };
 
 var displayScores = function () {
@@ -207,6 +208,7 @@ var tryQuizAgain = function () {
   clearInterval(interval);
   timeLeft = 120;
   timerSpan.textContent = timeLeft;
+  document.getElementById("response-status").innerHTML = "";
 };
 
 displayScores();

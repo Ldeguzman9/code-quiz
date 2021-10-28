@@ -8,7 +8,7 @@ This quiz contains:
 
 1. Main Screen: Introduction to the quiz.
 2. Question Screen: Multiple-choice questions with a 2 minute timer.
-3. End Screen: Displays the players score, a High Score board, and a 'Try again' button.
+3. End Screen: Displays the player's score, a High Score board, and a 'Try again' button.
 
 # Quiz Screen Shots
 

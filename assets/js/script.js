@@ -221,4 +221,5 @@ quizBtn.addEventListener("click", startQuiz);
 //event listener to start quiz over
 tryAgainBtn.addEventListener("click", tryQuizAgain);
 
+//  Event listener to add score to highscore board
 submit.addEventListener("click", scoreBoard);

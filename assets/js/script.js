@@ -198,7 +198,9 @@ var scoreBoard = function () {
   };
   scoresDisplay.push(savedScore);
   localStorage.setItem("high-scores", JSON.stringify(scoresDisplay));
+
   displayScores();
+  document.querySelector("input[type='text']").value = "";
 };
 
 //function to start over

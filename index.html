@@ -11,7 +11,7 @@
     <div id="count-down-holder">
       <h3>
         TIME REMAINING:
-        <span id="timer_span"> --- </span>
+        <span id="timer_span"> 120 </span>
       </h3>
     </div>
     <div id="start-screen" class="wrapper">
@@ -28,16 +28,12 @@
           <p id="instructions">
             Try to answer the following Javascript quiz questions. This is a
             timed quiz. You will have 2 minutes to answer as many questions as
-            possible. If an answer is incorrect, 5 seconds will be removed from
+            possible. If an answer is incorrect, 15 seconds will be removed from
             the clock! Good luck!
           </p>
         </div>
         <div class="card-footer">
           <button id="quiz-start" class="btn">Start Quiz</button>
-        </div>
-
-        <div id="high-scores">
-          <h4><a href="*">View High Scores</a></h4>
         </div>
       </div>
     </div>
@@ -57,25 +53,27 @@
         </div>
 
         <div class="card-body">
+          <span class="card-header"
+            ><div id="results"></div>
+            POINTS!</span
+          >
           <p id="final-message">
-            Check the scoreboard to see how you did, or click 'Try Agin' to
-            retake the quiz!
+            Please add your initials below to save your score, or click 'Try
+            Agin' to retake the quiz!
           </p>
-          <div id="results"></div>
+          <div id="high-scores">
+            <div class="wrapper">
+              <h1>Highscores</h1>
+              <ol id="highscores"></ol>
+              <p>
+                Enter initials: <input type="text" id="initials" max="3" />
+                <button id="submit">Submit</button>
+              </p>
+            </div>
+          </div>
         </div>
         <div class="card-footer">
           <button id="try-again" class="btn">Try Again!</button>
-        </div>
-
-        <div id="high-scores">
-          <div class="wrapper">
-            <h1>Highscores</h1>
-            <ol id="highscores"></ol>
-            <p>
-              Enter initials: <input type="text" id="initials" max="3" />
-              <button id="submit">Submit</button>
-            </p>
-          </div>
         </div>
       </div>
     </div>

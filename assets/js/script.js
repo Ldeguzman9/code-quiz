@@ -96,19 +96,7 @@ var initials = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var playerScore = timeLeft;
 
-//Timer function (Tutor version)
-// var startTime = function () {
-//   var interval = setInterval(function () {
-//     timeLeft--;
-//     timerSpan.textContent = timeLeft;
-//     if (timeLeft <= 0) {
-//       document.getElementById("#timer_span").innerHTML = "Time is up!";
-//       clearInterval(interval);
-//     }
-//   }, 1000);
-// };
-
-//Time function initial version
+//Time start function
 var startTime = function () {
   interval = setInterval(function () {
     document.getElementById("timer_span").innerHTML = --timeLeft;
@@ -157,11 +145,6 @@ var cycleQuestions = function () {
   });
 };
 
-// function pauseTimer() {
-//   clearInterval(interval);
-//   timerSpan.textContent = timeLeft;
-// }
-
 // Loop question function
 var checkAnswer = function () {
   if (this.value === quizQuestions[questionIndex].answer) {
@@ -191,7 +174,17 @@ var displayEndScreen = function () {
   endScreen.removeAttribute("class");
   clearInterval(interval);
   timerSpan.textContent = timeLeft;
-  results.textContent = timeLeft;
+  results.innerHTML = timeLeft;
+};
+
+var displayScores = function () {
+  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
+  scoresDisplay.forEach(function (savedScore) {
+    var item = document.createElement("li");
+    item.textContent = savedScore.name + ": " + savedScore.score;
+    var parentList = document.querySelector("#highscores");
+    parentList.appendChild(item);
+  });
 };
 
 // save to local storage
@@ -204,22 +197,16 @@ var scoreBoard = function () {
   };
   scoresDisplay.push(savedScore);
   localStorage.setItem("high-scores", JSON.stringify(scoresDisplay));
+  displayScores();
 };
 
 //function to start over
 var tryQuizAgain = function () {
   endScreen.setAttribute("class", "hide");
   startScreen.removeAttribute("class");
-};
-
-var displayScores = function () {
-  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
-  scoresDisplay.forEach(function (savedScore) {
-    var item = document.createElement("li");
-    item.textContent = savedScore.name + ": " + savedScore.score;
-    var parentList = document.querySelector("#highscores");
-    parentList.appendChild(item);
-  });
+  clearInterval(interval);
+  timeLeft = 120;
+  timerSpan.textContent = timeLeft;
 };
 
 displayScores();

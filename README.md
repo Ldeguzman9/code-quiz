@@ -13,19 +13,19 @@ This quiz contains:
 #Quiz Screen Shots
 
 - **Main Screen:**
-  ![Quiz Screen](https://github.com/Ldeguzman9/password-generator/blob/main/assets/images/PW%20Generator.png?raw=true)
+  ![Quiz Screen](https://github.com/Ldeguzman9/code-quiz/blob/main/assets/images/quiz%20screen.png?raw=true)
 - **Question Screen:**
-  ![Questions](https://github.com/Ldeguzman9/password-generator/blob/main/assets/images/PW%20generator%20prompts.png?raw=true)
+  ![Questions](https://github.com/Ldeguzman9/code-quiz/blob/main/assets/images/question%20screen.png?raw=true)
 - **End Screen:**
-  ![HighScores](https://github.com/Ldeguzman9/password-generator/blob/main/assets/images/PW%20generator%20prompts.png?raw=true)
+  ![HighScores](https://github.com/Ldeguzman9/code-quiz/blob/main/assets/images/end%20screen.png?raw=true)
 
 # Technical Skills
 
 - HTML
 - CSS
 - Javascript
-- Savning to local storage
+- Saving to local storage
 
 # Deployed Link
 
-https://ldeguzman9.github.io/password-generator/
+https://ldeguzman9.github.io/code-quiz/

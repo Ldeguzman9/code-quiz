@@ -10,7 +10,7 @@ This quiz contains:
 2. Question Screen: Multiple-choice questions with a 2 minute timer.
 3. End Screen: Displays the players score, a High Score board, and a 'Try again' button.
 
-#Quiz Screen Shots
+# Quiz Screen Shots
 
 - **Main Screen:**
   ![Quiz Screen](https://github.com/Ldeguzman9/code-quiz/blob/main/assets/images/quiz%20screen.png?raw=true)

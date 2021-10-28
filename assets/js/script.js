@@ -178,16 +178,6 @@ var displayEndScreen = function () {
   questionIndex = 0;
 };
 
-var displayScores = function () {
-  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
-  scoresDisplay.forEach(function (savedScore) {
-    var item = document.createElement("li");
-    item.textContent = savedScore.name + ": " + savedScore.score;
-    var parentList = document.querySelector("#highscores");
-    parentList.appendChild(item);
-  });
-};
-
 // save to local storage
 var scoreBoard = function () {
   initialsVal = initials.value;
@@ -203,6 +193,17 @@ var scoreBoard = function () {
   document.querySelector("input[type='text']").value = "";
 };
 
+// Display high score
+var displayScores = function () {
+  var scoresDisplay = JSON.parse(localStorage.getItem("high-scores")) || [];
+  scoresDisplay.forEach(function (savedScore) {
+    var item = document.createElement("li");
+    item.textContent = savedScore.name + ": " + savedScore.score;
+    var parentList = document.querySelector("#highscores");
+    parentList.appendChild(item);
+  });
+};
+
 //function to start over
 var tryQuizAgain = function () {
   endScreen.setAttribute("class", "hide");
@@ -211,9 +212,10 @@ var tryQuizAgain = function () {
   timeLeft = 120;
   timerSpan.textContent = timeLeft;
   document.getElementById("response-status").innerHTML = "";
+  document.getElementById("highscores").innerHTML = "";
 };
 
-displayScores();
+//displayScores();
 
 // Event listener to start quiz
 quizBtn.addEventListener("click", startQuiz);
